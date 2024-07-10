@@ -10,6 +10,7 @@ public class SoundViewModel extends BaseObservable {
     public SoundViewModel(BeatBox beatBox) {
         mBeatBox = beatBox;
     }
+
     @Bindable
     public String getTitle() {
         return mSound.getName();
@@ -22,5 +23,8 @@ public class SoundViewModel extends BaseObservable {
     public void setSound(Sound sound) {
         mSound = sound;
         notifyChange();
+    }
+
+    public void onButtonClicked() {
     }
 }

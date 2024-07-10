@@ -46,10 +46,17 @@ public class BeatBoxFragment extends Fragment {
             mBinding = binding;
             mBinding.setViewModel(new SoundViewModel(mBeatBox));
         }
+
         public void bind(Sound sound) {
             mBinding.getViewModel().setSound(sound);
             mBinding.executePendingBindings();
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mBeatBox.release();
     }
 
     private class SoundAdapter extends RecyclerView.Adapter<SoundHolder> {
